@@ -41,15 +41,17 @@ body::before {
 }
 
 /* Task 4: Add styles for headings, paragraphs, and buttons */
-h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-}
-
-h2, .btn-primary {
-    font-size: 2rem;
-}
 
 .lead {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
 }
+
+.btn-primary {
+    font-size: 1.5rem;
+    border-radius: 5px;
+    padding: auto;
+    margin: 10px auto;
+}
+
+

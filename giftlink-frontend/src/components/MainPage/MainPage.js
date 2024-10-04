@@ -20,6 +20,8 @@ function MainPage() {
                 console.log('Fetch error: ' + error.message);
             }
         }
+
+        fetchGifts();
     }, []);
 
     // Task 2: Navigate to details page
