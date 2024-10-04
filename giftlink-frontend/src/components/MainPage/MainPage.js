@@ -5,22 +5,20 @@ import {urlConfig} from '../../config';
 function MainPage() {
     const [gifts, setGifts] = useState([]);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        const fetchGifts = async () => {
-            try {
-                let url = `${urlConfig.backendUrl}/api/gifts`;
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error (`HTTP error; ${response.status}`);
-                }
-                const data = await response.json();
-                setGifts(data);
-            } catch (error) {
-                console.log('Fetch error: ' + error.message);
+    const fetchGifts = async () => {
+        try {
+            let url = `${urlConfig.backendUrl}/api/gifts`;
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error (`HTTP error; ${response.status}`);
             }
+            const data = await response.json();
+            setGifts(data);
+        } catch (error) {
+            console.log('Fetch error: ' + error.message);
         }
-
+    }
+    useEffect(() => {
         fetchGifts();
     }, []);
 
