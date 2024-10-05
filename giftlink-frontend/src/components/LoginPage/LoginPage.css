@@ -19,6 +19,7 @@
 .login-card .btn-primary {
     background-color: #0056b3;
     border: none;
+    margin-top: 20px;
 }
 
 .login-card .btn-secondary {

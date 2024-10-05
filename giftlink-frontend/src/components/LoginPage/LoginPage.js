@@ -40,7 +40,7 @@ function LoginPage () {
                                 className='form-control input'/>
                         </div>
                         <button type='submit' className='btn btn-primary'>Login</button>
-                        <p className='mt-4 text-center'>New here? 
+                        <p className='mt-4 text-center'>New here? &nbsp;
                             <Link href='/app/register' className='text-primary'>Register Here</Link>
                         </p>
                     </form>

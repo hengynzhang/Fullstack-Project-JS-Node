@@ -66,7 +66,7 @@ function RegisterPage() {
                         
                         <button type='submit' className='btn btn-primary'>Register</button>
                         <p className='mt-4 text-center'>
-                            Already a member?
+                            Already a member? &nbsp;
                             <Link to='/app/login' className='text-primary'>Login</Link>
                         </p>
                     </form>
