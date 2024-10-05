@@ -18,9 +18,10 @@ function LoginPage () {
                     <form className='login-card p-4 border rounder' onSubmit={handleLogin}>
                         <h2 className='text-cneter mb-4 font-weight-bold'>Login</h2>
                         <div className='mb-3'>
-                            <label className='form-label'>Email</label>
+                            <label className='form-label' htmlFor='email'>Email</label>
                             <input 
                                 type='email'
+                                id='email'
                                 namae='email'
                                 value={email}
                                 placeholder='Enter your email'
@@ -28,9 +29,10 @@ function LoginPage () {
                                 className='form-control input'/>
                         </div>
                         <div>
-                            <label className='form-label'>Password</label>
+                            <label className='form-label' htmlFor='password'>Password</label>
                             <input 
                                 type='password'
+                                id='password'
                                 name='password'
                                 value={password}
                                 placeholder='Enter your password'

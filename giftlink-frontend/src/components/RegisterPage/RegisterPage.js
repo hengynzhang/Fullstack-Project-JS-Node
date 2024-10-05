@@ -20,9 +20,10 @@ function RegisterPage() {
                     <form className='register-card p-4 border rounded' onSubmit={handleRegister}>
                         <h2 className='text-center mb-4 font-weight-bold'>Register</h2>
                         <div className='mb-4'>
-                            <label className='form-label'>First Name</label>
+                            <label className='form-label' htmlFor='firstName'>First Name</label>
                             <input 
                                 type='text'
+                                id='firstName'
                                 className='form-control input' 
                                 placeholder='Enter your First Name'
                                 name='firstName' 
@@ -30,9 +31,10 @@ function RegisterPage() {
                                 onChange= {(e)=> {setFirstName(e.target.value)}}/>   
                         </div>
                         <div className='mb-4'>
-                            <label className='form-label'>Last Name</label>
+                            <label className='form-label' htmlFor='lastName'>Last Name</label>
                             <input 
                                 type='text'
+                                id='lastName'
                                 className='form-control input' 
                                 placeholder='Enter your Last Name'
                                 name='lastName' 
@@ -40,9 +42,10 @@ function RegisterPage() {
                                 onChange= {(e)=> {setLastName(e.target.value)}}/>  
                         </div>
                         <div className='mb-4'>
-                            <label className='form-label'>Email</label>
+                            <label className='form-label' htmlFor='email'>Email</label>
                             <input 
                                 type='email'
+                                id='email'
                                 className='form-control input' 
                                 placeholder='Enter your email'
                                 name='email' 
@@ -50,9 +53,10 @@ function RegisterPage() {
                                 onChange= {(e)=> {setEmail(e.target.value)}}/>
                         </div>
                         <div className='mb-4'>
-                            <label className='form-label'>Password</label>
+                            <label className='form-label' htmlFor='password'>Password</label>
                             <input 
                                 type='password'
+                                id='password'
                                 className='form-control input' 
                                 placeholder='Enter your password'
                                 name='password' 
