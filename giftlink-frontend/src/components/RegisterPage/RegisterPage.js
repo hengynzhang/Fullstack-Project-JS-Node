@@ -33,7 +33,7 @@ function RegisterPage() {
             const json = await response.json();
             console.log('json data', json);
         } catch (err) {
-            console.log('er', err);
+            console.log('error', err);
         }
     }
 

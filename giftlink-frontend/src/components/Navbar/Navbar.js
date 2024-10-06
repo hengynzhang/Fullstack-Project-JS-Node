@@ -67,14 +67,14 @@ export default function Navbar() {
                                     className='nav-link' 
                                     style={{color: 'black', cursor: 'pointer'}}
                                     onClick={profileSection}>
-                                        Welcome, {userName}
+                                Welcome, {userName}
                                 </span>
                             </li>
                             <li className='nav-item'>
                                 <button 
                                     className='nav-link login-btn'
                                     onClick={handleLogout} >
-                                        Logout
+                                Logout
                                 </button>
                             </li>
                         </>
