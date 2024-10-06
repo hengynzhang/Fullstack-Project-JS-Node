@@ -1,4 +1,5 @@
 const express = require('express');
+const {body, validationResult} = require('express-validator');
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const connectToDatabase = require('../models/db');
@@ -47,7 +48,7 @@ router.post('/register', async (req, res) => {
         logger.error(err)
         res.status(500).send('Internal server error');
     }
-})
+});
 
 router.post('/login', async(req, res) => {
     try {
@@ -60,8 +61,7 @@ router.post('/login', async(req, res) => {
         }
 
         const user = await collection.findOne({email});
-        const result = await bcryptjs.compare(password, user.password);
-        if (!user || !result) {
+        if (!user || !bcryptjs.compare(password, user.password)) {
             logger.error('Invalid credentials')
             return res.status(400).json({error: 'Invalid credentials'});
         }
@@ -79,6 +79,50 @@ router.post('/login', async(req, res) => {
     } catch (err) {
         logger.error(err);
         res.status(500).json({error: 'Internal server error'})
+    }
+});
+
+router.put('/update', async(req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        logger.error('Validation errors in update request', JSON.stringify(errors.array()));
+        return res.status(400).json({errors: errors.array()})
+    }
+
+    try {
+        const {email} = req.headers;
+        if (!email) {
+            logger.error('Email not found in the request headers');
+            return res.status(400).json({error: 'Email not found in the request headers'});
+        }
+
+        const db = await connectToDatabase();
+        const collection = db.collection('users');
+        const user = await collection.findOne({email});
+        if (!user) {
+            logger.error('User not found');
+            return res.status(400).json({error: 'User not found'});
+        }
+
+        user.firstName = req.body.firstName;
+        user.updatedAt = new Date();
+        const updatedUser = await collection.findOneAndUpdate(
+            {email},
+            {$set: user},
+            {returnDocument: 'after'}
+        );
+
+        const payload = {
+            user: {
+                id: updatedUser._id.toString()
+            }
+        }
+        const authtoken = jwt.sign(payload, JWT_SECRET);
+        logger.info('User updated successfully!')
+        res.status(200).json({authtoken});
+    } catch (err) {
+        logger.error(err);
+        res.status(500).send('Internal server error')
     }
 })
 
