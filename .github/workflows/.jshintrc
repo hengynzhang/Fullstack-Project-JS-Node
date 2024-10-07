@@ -1,9 +1,1 @@
-{
-  "esversion": 6,
-  "node": true,
-  "globals": {
-    "require": true,
-    "module": true,
-    "process": true
-  }
-}
+
