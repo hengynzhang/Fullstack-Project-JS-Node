@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {urlConfig} from '../../config';
-import { useAppContext } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
 import './RegisterPage.css';
 
 function RegisterPage() {
@@ -10,10 +8,6 @@ function RegisterPage() {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    const [showerr, setShowerr] = useState('');
-    const navigate = useNavigate();
-    const {setIsLoggedIn} = useAppContext();
 
     const handleRegister = async (e) => {
         e.preventDefault();

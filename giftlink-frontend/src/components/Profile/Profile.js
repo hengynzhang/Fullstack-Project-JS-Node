@@ -126,7 +126,7 @@ const Profile = () => {
                     display:'block',
                     fontStyle:'italic',
                     fontSize:'12px'}}>
-            {changed}
+            {feedbackMessage}
             </span>
             </div>
             )}

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import {urlConfig} from '../../config';
 import { useAppContext } from '../../context/AuthContext';
 
 export default function Navbar() {
@@ -20,7 +19,7 @@ export default function Navbar() {
                 setIsLoggedIn(false);
             }
         }
-    }, [setIsLoggedIn, setUserName])
+    }, [isLoggedIn, setIsLoggedIn, setUserName])
 
     const handleLogout = () => {
         sessionStorage.removeItem('auth-token');
