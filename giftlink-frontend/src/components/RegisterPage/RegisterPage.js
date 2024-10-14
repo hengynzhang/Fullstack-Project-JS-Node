@@ -8,6 +8,11 @@ function RegisterPage() {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isSuccess, setIsSuccess] = useState(false);
+
+    const sendRegisterMessage = () => {
+        setIsSuccess(true);
+    };
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -34,9 +39,15 @@ function RegisterPage() {
     return (
         <div className='container mt-5'>
             <div className='row justify-content-center'>
-                <div className='col-md-6 col-lg-4'>
+                <div className='col-md-6'>
                     <form className='register-card p-4 border rounded' onSubmit={handleRegister}>
                         <h2 className='text-center mb-4 font-weight-bold'>Register</h2>
+                        {isSuccess && (
+                            <div className='alert alert-success mt-3' role='alert'>
+                            Registration Successful! &nbsp;
+                            <Link to='/app/login'>Login</Link>&nbsp;to view more gifts...
+                            </div>
+                        )}
                         <div className='mb-4'>
                             <label className='form-label' htmlFor='firstName'>First Name</label>
                             <input 
@@ -82,7 +93,7 @@ function RegisterPage() {
                                 onChange= {(e)=> {setPassword(e.target.value)}}/>
                         </div>
                         
-                        <button type='submit' className='btn btn-primary'>Register</button>
+                        <button type='submit' className='btn btn-primary' onClick={sendRegisterMessage}>Register</button>
                         <p className='mt-4 text-center'>
                             Already a member? &nbsp;
                             <Link to='/app/login' className='text-primary'>Login</Link>

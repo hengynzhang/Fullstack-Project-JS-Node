@@ -57,7 +57,7 @@ function LoginPage () {
     return (
         <div className='container mt-5'>
             <div className='row justify-content-center'>
-                <div className='col-md-6 col-lg-4'>
+                <div className='col-md-6'>
                     <form className='login-card p-4 border rounder' onSubmit={handleLogin}>
                         <h2 className='text-cneter mb-4 font-weight-bold'>Login</h2>
                         <div className='mb-3'>
@@ -94,7 +94,7 @@ function LoginPage () {
                         </div>
                         <button type='submit' className='btn btn-primary'>Login</button>
                         <p className='mt-4 text-center'>New here? &nbsp;
-                            <Link href='/app/register' className='text-primary'>Register Here</Link>
+                            <Link to='/app/register' className='text-primary'>Register Here</Link>
                         </p>
                     </form>
                 </div>

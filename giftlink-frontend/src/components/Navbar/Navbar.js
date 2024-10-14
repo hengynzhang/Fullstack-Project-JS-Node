@@ -35,7 +35,7 @@ export default function Navbar() {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link className="navbar-brand" to="/">GiftLink</Link>
+            <Link className="navbar-brand" to="/app">GiftLink</Link>
             <button 
                 className='navbar-toggler' 
                 type='button' 
