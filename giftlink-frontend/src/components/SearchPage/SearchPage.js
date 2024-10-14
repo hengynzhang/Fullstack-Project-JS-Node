@@ -57,8 +57,8 @@ function SearchPage() {
 
     const navigate = useNavigate();
     const goToDetailsPage = (productId) => {
-        navigate(`app/product/${productId}`);
-    }
+        navigate(`/app/product/${productId}`);
+      };
 
     return (
         <div className="container mt-5">
